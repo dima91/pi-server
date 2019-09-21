@@ -25,7 +25,7 @@
 5. Update the whole system (`sudo apt update --fix-missing && sudo apt upgrade --fix-missing`)
 6. Reboot the system
 7. Download VNC client [here](https://www.realvnc.com/en/connect/download/viewer/) to see the remote desktop on the raspberry
-8. Install `openvpn ntfs-3g supervisor eject vim build-essential git`
+8. Install `openvpn ntfs-3g supervisor eject vim build-essential git perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python`
 
 #### *Docker installation*
 
@@ -59,17 +59,34 @@ sudo cp /etc/fstab /etc/fstab.backup   # Take a backup of current fstab
 sudo usermod -aG pi www-data           # Add pi user to www-data group (needed for owncloud)
 ```
 
-13. The docker compose file to run the **OwnCloud server** is placed in the folder `Docker/Owncloud`. To execute it automaticallu at startup, just place the *owncloud.conf* file in configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`. [Here](https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/) is the oiginal guide to setup OwnCloud server.
-To edit owncloud configurations, change the file *config.php* placede at path `/var/lib/docker/volumes/owncloud_html-volume/_data/config/config.php`
+#### *OwnCloud installation*
 
-#### *OwnCloud insallation*
+13. The docker compose file to run the **OwnCloud server** is placed in the folder `Docker/Owncloud`. To execute it automaticallu at startup, just place the *owncloud.conf* file in configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
+
+	[Here](https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/) is the oiginal guide to setup OwnCloud server. To edit owncloud configurations, change the file *config.php* placede at path `/var/lib/docker/volumes/owncloud_html-volume/_data/config/config.php`
 
 #### *Plex installation*
 
-#### *Transimission installation*
-
-#### *Webmin installation*
+14. To install **Plex media server** ... does not work
 
 #### *Samba installation*
 
-#### *Apache installation*
+15. To install **Samba** ... todo, maybe using [this repo](https://github.com/dastrasmue/rpi-samba)
+
+#### *Transmission installation*
+
+16. To install **Transmission** --- todo, maybe using [this docker image](https://hub.docker.com/r/jaymoulin/rpi-transmission/)
+
+#### *Webmin installation*
+
+17. To install **Webmin** type following commands:
+```
+sudo bash -c "echo deb https://download.webmin.com/download/repository sarge contrib >>  /etc/apt/sources.list"
+cd ~/Downloads
+wget http://www.webmin.com/jcameron-key.asc
+apt-key add jcameron-key.asc
+sudo apt update
+sudo apt install apt-transport-https webmin
+```
+
+18. Reboot the system
