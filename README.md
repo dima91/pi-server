@@ -68,6 +68,10 @@ sudo usermod -aG pi www-data           # Add pi user to www-data group (needed f
 #### *Plex installation*
 
 14. To install **Plex media server** ... does not work
+```
+cd ~/Documents/pi-server/Docker/Plex
+wget https://downloads.plex.tv/plex-media-server-new/1.16.6.1592-b9d49bdb7/debian/plexmediaserver_1.16.6.1592-b9d49bdb7_armhf.deb
+```
 
 #### *Samba installation*
 
