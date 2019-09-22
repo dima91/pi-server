@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 
 CONFIG_DIR=$HOME/Documents/pi-server/Docker/Plex/config
-DATA_DIR=$HOME/Documents/pi-server/Docker/Plex/data/drive-link
+DATA_DIR=$HOME/Documents/pi-server/Docker/Plex/data/drive.lnk
 
 docker run \
 	--name plex \
