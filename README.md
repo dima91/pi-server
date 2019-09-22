@@ -82,7 +82,7 @@ sudo usermod -aG pi www-data           # Add pi user to www-data group (needed f
 
 16. To install **Transmission** edit *DOWNLOADED_DIR* and *TEMP_DIR* variable value to match locations of output and temporary directories, put *transmission.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
 
-	[Here](https://hub.docker.com/r/jaymoulin/rpi-transmission/) is the original guide to setup Transmission.
+	[Here](https://hub.docker.com/r/jaymoulin/transmission/) is the original guide to setup Transmission.
 
 
 #### *Webmin installation*
