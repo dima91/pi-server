@@ -65,15 +65,17 @@ sudo usermod -aG pi www-data           # Add pi user to www-data group (needed f
 
 	[Here](https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/) is the oiginal guide to setup OwnCloud server. To edit owncloud configurations, change the file *config.php* placede at path `/var/lib/docker/volumes/owncloud_html-volume/_data/config/config.php`
 
+
 #### *Plex installation*
 
-14. To execute **Plex media server** just put *plex.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
+14. To execute **Plex media server** just edit the *DATA_DIR* variable value to match with locations of your media file, pu *plex.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`. For the first time should be needed that te registartion of server is done directly inside the raspberry (through VNC for example).
 
 	[Here](https://hub.docker.com/r/greensheep/plex-server-docker-rpi/) is the original guide to setup Plex server,
 
+
 #### *Samba installation*
 
-15. To install **Samba** ... todo, maybe using [this repo](https://github.com/dastrasmue/rpi-samba)
+15. To install **Samba** ... todo, maybe using [this repo](https://github.com/dastrasmue/rpi-samba). **NOT TESTED**
 
 #### *Transmission installation*
 
