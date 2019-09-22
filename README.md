@@ -61,7 +61,7 @@ sudo usermod -aG pi www-data           # Add pi user to www-data group (needed f
 
 #### *OwnCloud installation*
 
-13. The docker compose file to run the **OwnCloud server** is placed in the folder `Docker/Owncloud`. To execute it automaticallu at startup, just put the *owncloud.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
+13. The docker compose file to run the **OwnCloud server** is placed in the folder `Services/Owncloud`. To execute it automaticallu at startup, just put the *owncloud.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
 
 	[Here](https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/) is the oiginal guide to setup OwnCloud server. To edit owncloud configurations, change the file *config.php* placede at path `/var/lib/docker/volumes/owncloud_html-volume/_data/config/config.php`
 

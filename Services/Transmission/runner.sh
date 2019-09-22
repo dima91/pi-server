@@ -2,8 +2,9 @@
 
 cd "$(dirname "$0")"
 
-DOWNLOADED_DIR=$HOME/Documents/pi-server/Docker/Transmission/downloaded.lnk
-TEMP_DIR=$HOME/Documents/pi-server/Docker/Transmission/tmp.lnk
+PWD=$(pwd)
+DOWNLOADED_DIR=$PWD/downloaded.lnk
+TEMP_DIR=$PWD/tmp.lnk
 
 docker run \
 	--rm \
