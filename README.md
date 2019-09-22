@@ -68,7 +68,7 @@ sudo usermod -aG pi www-data           # Add pi user to www-data group (needed f
 
 #### *Plex installation*
 
-14. To execute **Plex media server** just edit the *DATA_DIR* variable value to match with locations of your media file, pu *plex.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`. For the first time should be needed that te registartion of server is done directly inside the raspberry (through VNC for example).
+14. To execute **Plex media server** just edit the *DATA_DIR* variable value to match locations of your media file, put *plex.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`. For the first time should be needed that te registartion of server is done directly inside the raspberry (through VNC for example).
 
 	[Here](https://hub.docker.com/r/greensheep/plex-server-docker-rpi/) is the original guide to setup Plex server,
 
@@ -77,9 +77,13 @@ sudo usermod -aG pi www-data           # Add pi user to www-data group (needed f
 
 15. To install **Samba** ... todo, maybe using [this repo](https://github.com/dastrasmue/rpi-samba). **NOT TESTED**
 
+
 #### *Transmission installation*
 
-16. To install **Transmission** --- todo, maybe using [this docker image](https://hub.docker.com/r/jaymoulin/rpi-transmission/)
+16. To install **Transmission** edit *DOWNLOADED_DIR* and *TEMP_DIR* variable value to match locations of output and temporary directories, put *transmission.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
+
+	[Here](https://hub.docker.com/r/jaymoulin/rpi-transmission/) is the original guide to setup Transmission.
+
 
 #### *Webmin installation*
 
