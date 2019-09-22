@@ -14,7 +14,7 @@ services:
 
   owncloud:
     image: blepiolot/rpi-owncloud:latest
-    container_name: owncloud-01
+    container_name: owncloud
     ports:
       - 8080:80
       - 443:443
@@ -27,7 +27,7 @@ services:
 
   mysql:
     image: blepiolot/rpi-mariadb:latest
-    container_name: mariadb-01
+    container_name: mariadb
     volumes:
       - db-volume:/var/lib/mysql
     environment:
