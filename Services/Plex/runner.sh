@@ -13,4 +13,4 @@ docker run \
 	--rm \
 	--volume $CONFIG_DIR:/config \
 	--volume $DATA_DIR:/data \
-	greensheep/plex-server-docker-rpi:latest
+	greensheep/plex-server-docker-rpi:1.21.1.3830-6c22540d5
