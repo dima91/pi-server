@@ -9,7 +9,6 @@ DATA_DIR=$PWD/data/drive.lnk
 docker run \
 	--name plex \
 	--net host \
-	-p 32400:32400 \
 	--rm \
 	--volume $CONFIG_DIR:/config \
 	--volume $DATA_DIR:/data \
