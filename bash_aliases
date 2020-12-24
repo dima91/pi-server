@@ -19,7 +19,7 @@ function remove_drive {
 	DEVICE_PATH="$2"
 	echo "jecting $2 mounted ar $1"
 
-	if [ ! -f "$MOUNT_POINT" ]; then
+	if [ ! -d "$MOUNT_POINT" ]; then
     	echo "Mount point   $MOUNT_POINT   does not exist!"
 		return 1
 	fi
