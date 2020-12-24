@@ -25,25 +25,9 @@
 5. Update the whole system (`sudo apt update --fix-missing && sudo apt upgrade --fix-missing`)
 6. Reboot the system
 7. Download VNC client [here](https://www.realvnc.com/en/connect/download/viewer/) to see the remote desktop on the raspberry
-8. Install `openvpn ntfs-3g supervisor eject vim build-essential git perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python`
-
-#### *Docker installation*
-
-9. Type following commands:
-
-```
-sudo apt-get remove docker docker-engine docker.io containerd runc \
-; sudo apt install apt-transport-https ca-certificates software-properties-common gnupg2 \
-&& curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
-&& sudo apt install docker.io docker-compose \
-&& sudo usermod -aG docker $USER \
-&& sudo systemctl enable docker \
-&& sudo reboot
-```
-
-10. Clone this repository inside `/home/pi/Documents'
-
-11. Make a backup of sdcard before doing else
+8. Clone this repository inside `/home/pi/Documents
+9. Install apt dependencies, Docker and Webmin by executing `setup.sh` script as sudoer
+11. Make a backup of sdcard
 
 12. Configure nas_drive automount at boot ([original guide](https://gist.github.com/etes/aa76a6e9c80579872e5f)) by typing:
 ```
@@ -59,16 +43,16 @@ sudo cp /etc/fstab /etc/fstab.backup   # Take a backup of current fstab
 sudo usermod -aG pi www-data           # Add pi user to www-data group (needed for owncloud)
 ```
 
-#### *OwnCloud installation*
+### *OwnCloud installation*
 
 13. The docker compose file to run the **OwnCloud server** is placed in the folder `Services/Owncloud`. To execute it automaticallu at startup, just put the *owncloud.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
 
 	[Here](https://ssi.le-piolot.fr/running-owncloud-w-ssl-in-a-raspberry-pi-docker-container/) is the oiginal guide to setup OwnCloud server. To edit owncloud configurations, change the file *config.php* placede at path `/var/lib/docker/volumes/owncloud_html-volume/_data/config/config.php`
 
 
-#### *Plex installation*
+### *Plex installation*
 
-14. To execute **Plex media server** just edit the *DATA_DIR* variable value to match locations of your media file, put *plex.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`. For the first time should be needed that te registartion of server is done directly inside the raspberry (through VNC for example).
+14. To execute **Plex media server** just edit the *DATA_DIR* variable value in `Services/Plex/runner.sh` file to match locations of your media file (I've create a link to data directory), put *plex.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`. For the first time should be needed that te registartion of server is done directly inside the raspberry (through VNC for example).
 
 	[Here](https://hub.docker.com/r/greensheep/plex-server-docker-rpi/) is the original guide to setup Plex server,
 
@@ -78,23 +62,11 @@ sudo usermod -aG pi www-data           # Add pi user to www-data group (needed f
 15. To install **Samba** ... todo, maybe using [this repo](https://github.com/dastrasmue/rpi-samba). **NOT TESTED**
 
 
-#### *Transmission installation*
+### *Transmission installation*
 
-16. To install **Transmission** edit *DOWNLOADED_DIR* and *TEMP_DIR* variable value to match locations of output and temporary directories, put *transmission.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
+16. To install **Transmission** edit *DOWNLOADED_DIR* and *TEMP_DIR* variable value in `Services/Transmission/runner.sh` file to match locations of output and temporary directories, put *transmission.conf* file in the configuration folder of *supervisor* (e.g. `/etc/supervisor/conf.d`) and type `sudo supervisorctl reread && sudo supervisorctl reload`.
 
 	[Here](https://hub.docker.com/r/jaymoulin/transmission/) is the original guide to setup Transmission.
-
-
-#### *Webmin installation*
-
-17. To install **Webmin** type following commands:
-```
-sudo bash -c "echo deb https://download.webmin.com/download/repository sarge contrib >>  /etc/apt/sources.list"
-cd ~/Downloads
-wget http://www.webmin.com/jcameron-key.asc
-apt-key add jcameron-key.asc
-sudo apt update
-sudo apt install apt-transport-https webmin
 ```
 
 18. Reboot the system
