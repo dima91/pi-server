@@ -13,5 +13,4 @@ docker run \
 	-v $DOWNLOADED_DIR:/output \
 	-p 9091:9091 \
 	-p 51413:51413 \
-	-e USERNAME=admin -e PASSWORD=admin \
 	jaymoulin/transmission
