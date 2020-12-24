@@ -23,7 +23,7 @@ function remove_drive {
     	echo "Mount point   $MOUNT_POINT   does not exist!"
 		return 1
 	fi
-	if [ ! -f "$DEVICE_PATH" ]; then
+	if [ ! -b "$DEVICE_PATH" ]; then
     	echo "Device at path   $DEVICE_PATH   does not exist!"
 		return 1
 	fi
