@@ -1,6 +1,6 @@
 
 # Alias to update apt packages and upgrade those that have updates
-updg='sudo apt update && sudo apt upgrade'
+alias updg='sudo apt update && sudo apt upgrade'
 
 
 # Function to safely remove an external drive (as an external hard disk)
